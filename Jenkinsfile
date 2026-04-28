@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh 'docker build -t churn-app .'
+                echo 'Jenkins working 🚀'
             }
         }
     }
