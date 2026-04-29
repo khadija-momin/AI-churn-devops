@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'echo "Hello from Jenkins 🚀"'
+                sh 'docker build -t churn-app .'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh 'docker run -d -p 5001:5000 churn-app'
             }
         }
     }
